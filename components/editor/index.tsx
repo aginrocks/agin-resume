@@ -30,6 +30,7 @@ export function Editor() {
                 },
             ],
             skills: ['JavaScript', 'React', 'Node.js'],
+            hobby: 'Coding and hiking',
         },
     });
 

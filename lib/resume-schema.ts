@@ -19,5 +19,6 @@ export const resumeSchema = z.object({
     }),
     overview: z.string().optional(),
     experience: z.array(experienceSchema),
-    skills: z.array(z.string()).optional(),
+    skills: z.array(z.string()),
+    hobby: z.string().optional(),
 });

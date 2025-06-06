@@ -5,6 +5,7 @@ import { SidebarLI, SidebarTitle, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
+import { HobbySectionTemplate } from '../common/sections/hobby';
 
 const styles = StyleSheet.create({
     root: {
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     },
     content: {
         padding: 25,
+        gap: 6,
     },
 });
 
@@ -78,7 +80,8 @@ export function ModernTemplate({ data }: TemplateProps) {
                     <Text style={styles.headerSubtitle}>{data.personalData.jobTitle}</Text>
                 </View>
                 <View style={styles.content}>
-                    <SummarySectionTemplate data={data} titleSlot={Title} />
+                    {data.overview && <SummarySectionTemplate data={data} titleSlot={Title} />}
+                    {data.hobby && <HobbySectionTemplate data={data} titleSlot={Title} />}
                 </View>
             </View>
         </View>

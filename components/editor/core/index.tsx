@@ -11,7 +11,8 @@ import {
 } from '@tabler/icons-react';
 import { Section } from './section';
 import { CoreHeader } from './header';
-import { PersonalDataSection, SummarySection } from './sections';
+import { HobbySection, PersonalDataSection, SummarySection } from './sections';
+import { SkillsSection } from './sections/skills';
 
 export function Core() {
     return (
@@ -30,11 +31,7 @@ export function Core() {
                     description="Your work history and achievements"
                     icon={IconTie}
                 ></Section>
-                <Section
-                    title="Skills"
-                    description="Your skills and proficiencies"
-                    icon={IconStars}
-                ></Section>
+                <SkillsSection />
                 <Section
                     title="Languages"
                     description="Languages you speak and your proficiency"
@@ -45,11 +42,7 @@ export function Core() {
                     description="Your social media profiles, personal website etc."
                     icon={IconLink}
                 ></Section>
-                <Section
-                    title="Hobby"
-                    description="Your hobbies and interests"
-                    icon={IconHorseToy}
-                ></Section>
+                <HobbySection />
                 <Section
                     title="GDPR Consent"
                     description="Your consent for data processing, which is required in the European Union"
