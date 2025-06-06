@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
 import { TemplateProps } from '..';
-import { PersonalDataSectionTemplate } from '../common/sections';
+import { GDPRSectionTemplate, PersonalDataSectionTemplate } from '../common/sections';
 import { SidebarLI, SidebarTitle, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
@@ -84,6 +84,7 @@ export function ModernTemplate({ data }: TemplateProps) {
                 <View style={styles.content}>
                     {data.overview && <SummarySectionTemplate data={data} titleSlot={Title} />}
                     {data.hobby && <HobbySectionTemplate data={data} titleSlot={Title} />}
+                    {data.gdpr && <GDPRSectionTemplate data={data} />}
                 </View>
             </View>
         </View>

@@ -11,7 +11,7 @@ import {
 } from '@tabler/icons-react';
 import { Section } from './section';
 import { CoreHeader } from './header';
-import { HobbySection, PersonalDataSection, SummarySection } from './sections';
+import { GDPRSection, HobbySection, PersonalDataSection, SummarySection } from './sections';
 import { SkillsSection } from './sections/skills';
 import { ScrollArea } from '@components/ui/scroll-area';
 
@@ -44,11 +44,7 @@ export function Core() {
                     icon={IconLink}
                 ></Section>
                 <HobbySection />
-                <Section
-                    title="GDPR Consent"
-                    description="Your consent for data processing, which is required in the European Union"
-                    icon={IconShieldLock}
-                ></Section>
+                <GDPRSection />
             </div>
         </ScrollArea>
     );
