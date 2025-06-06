@@ -11,6 +11,18 @@ import { Form } from '@components/ui/form';
 export function Editor() {
     const form = useForm<z.infer<typeof resumeSchema>>({
         resolver: zodResolver(resumeSchema),
+        defaultValues: {
+            personalData: {
+                firstName: '',
+                lastName: '',
+                jobTitle: '',
+                email: '',
+                phone: '',
+            },
+            overview: '',
+            experience: [],
+            skills: [],
+        },
     });
 
     return (
