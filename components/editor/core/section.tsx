@@ -1,6 +1,8 @@
 import { Button } from '@components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@components/ui/card';
-import { Icon, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import { cn } from '@lib/utils';
+import { Icon, IconChevronDown, IconChevronUp, IconGripVertical } from '@tabler/icons-react';
+import clsx from 'clsx';
 import { useState } from 'react';
 
 export type SectionProps = {
@@ -8,16 +10,34 @@ export type SectionProps = {
     description?: string;
     icon?: Icon;
     children?: React.ReactNode;
+    canDrag?: boolean;
 };
 
-export function Section({ title, description, icon: Icon, children }: SectionProps) {
+export function Section({
+    title,
+    description,
+    icon: Icon,
+    canDrag = true,
+    children,
+}: SectionProps) {
     const [expanded, setExpanded] = useState(false);
 
     return (
         <div className="border rounded-md cursor-pointer hover:bg-sidebar transition-colors">
-            <div className="flex justify-between items-center p-2.5 pl-3">
-                <div className="flex items-center gap-2">
-                    {Icon && <Icon className="size-5 text-muted-foreground" />}
+            <div className="flex justify-between items-center p-2.5">
+                <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-1.5">
+                        <IconGripVertical
+                            className={cn(
+                                'size-3.5',
+                                clsx({
+                                    'text-muted-foreground/50': !canDrag,
+                                    'text-muted-foreground cursor-grab': canDrag,
+                                })
+                            )}
+                        />
+                        {Icon && <Icon className="size-5 text-muted-foreground" />}
+                    </div>
                     <div>
                         <div className="font-semibold text-sm">{title}</div>
                         <div className="text-muted-foreground text-xs">{description}</div>
