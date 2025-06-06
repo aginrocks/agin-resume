@@ -24,9 +24,17 @@ export function Editor() {
                 {
                     company: 'Tech Company',
                     jobTitle: 'Senior Developer',
-                    startDate: new Date('2020-01-01'),
-                    endDate: new Date('2021-01-01'),
+                    startDate: {
+                        year: new Date().getFullYear(),
+                        month: new Date().getMonth(),
+                    },
+                    endDate: {
+                        year: new Date().getFullYear(),
+                        month: new Date().getMonth(),
+                    },
                     description: 'Worked on various projects using React and Node.js.',
+                    location: 'New York, NY',
+                    isPresent: false,
                 },
             ],
             skills: ['JavaScript', 'React', 'Node.js'],

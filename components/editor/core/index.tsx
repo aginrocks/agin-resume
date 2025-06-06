@@ -11,7 +11,13 @@ import {
 } from '@tabler/icons-react';
 import { Section } from './section';
 import { CoreHeader } from './header';
-import { GDPRSection, HobbySection, PersonalDataSection, SummarySection } from './sections';
+import {
+    ExperienceSection,
+    GDPRSection,
+    HobbySection,
+    PersonalDataSection,
+    SummarySection,
+} from './sections';
 import { SkillsSection } from './sections/skills';
 import { ScrollArea } from '@components/ui/scroll-area';
 
@@ -27,11 +33,7 @@ export function Core() {
                     description="Your educational background"
                     icon={IconSchool}
                 ></Section>
-                <Section
-                    title="Professional Experience"
-                    description="Your work history and achievements"
-                    icon={IconTie}
-                ></Section>
+                <ExperienceSection />
                 <SkillsSection />
                 <Section
                     title="Languages"

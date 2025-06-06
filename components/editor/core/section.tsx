@@ -3,9 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@comp
 import { cn } from '@lib/utils';
 import { Icon, IconChevronDown, IconChevronUp, IconGripVertical } from '@tabler/icons-react';
 import clsx from 'clsx';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export type SectionProps = {
+export type SectionProps = React.ComponentProps<'div'> & {
     title: string;
     description?: string;
     icon?: Icon;
@@ -19,11 +19,12 @@ export function Section({
     icon: Icon,
     canDrag = true,
     children,
+    ...props
 }: SectionProps) {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <div className="border rounded-md overflow-hidden">
+        <div className="border rounded-md overflow-hidden" {...props}>
             <div
                 className={cn(
                     'cursor-pointer hover:bg-sidebar transition-colors',
