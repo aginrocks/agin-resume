@@ -32,6 +32,9 @@ export function Preview() {
                 setLoading(true);
                 const blob = await pdf(<Renderer data={values} />).toBlob();
                 const url = URL.createObjectURL(blob);
+
+                if (pdfBlob) URL.revokeObjectURL(pdfBlob);
+
                 setPdfBlob(url);
             } catch (error) {
                 console.error('Error generating PDF:', error);
