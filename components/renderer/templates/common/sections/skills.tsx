@@ -22,13 +22,18 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         gap: '8px',
     },
+    tags: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: '4px',
+    },
 });
 
-export function SkillsSectionTemplate({ data, titleSlot, liSlot }: SkillsTemplateProps) {
+export function SkillsSectionTemplate({ data, titleSlot, liSlot, type }: SkillsTemplateProps) {
     return (
         <View style={styles.container}>
             {titleSlot({ title: 'Skills' })}
-            <View style={styles.rows}>
+            <View style={type === 'tags' ? styles.tags : styles.rows}>
                 {data.skills?.map((s, i) => (
                     <View key={i}>{liSlot({ label: s })}</View>
                 ))}

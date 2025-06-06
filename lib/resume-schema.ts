@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const TEMPLATES = ['modern', 'modern-2'] as const;
+export const TEMPLATES = ['modern', 'modern-2', 'simple'] as const;
 
 export const dateSchema = z.object({
     year: z

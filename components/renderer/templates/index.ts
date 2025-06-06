@@ -4,6 +4,7 @@ import z from 'zod';
 
 export * from './modern';
 export * from './modern-2';
+export * from './simple';
 
 export type TemplateProps = {
     data: z.infer<typeof resumeSchema>;

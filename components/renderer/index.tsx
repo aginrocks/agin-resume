@@ -1,5 +1,5 @@
 import { Document, Page, Text } from '@react-pdf/renderer';
-import { ModernTemplate, Modern2Template } from './templates';
+import { ModernTemplate, Modern2Template, SimpleTemplate } from './templates';
 import z from 'zod';
 import { resumeSchema } from '@lib/resume-schema';
 
@@ -16,6 +16,7 @@ export function Renderer({ data }: RendererProps) {
             <Page size="A4">
                 {data.template === 'modern' && <ModernTemplate data={data} />}
                 {data.template === 'modern-2' && <Modern2Template data={data} />}
+                {data.template === 'simple' && <SimpleTemplate data={data} />}
             </Page>
         </Document>
     );
