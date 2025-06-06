@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
-import { SlotTemplateProps, TemplateProps } from '../..';
+import { convertTextPropsToStyle, SlotTemplateProps, TemplateProps, TextProps } from '../..';
 
 const styles = StyleSheet.create({
     container: {
@@ -13,11 +13,21 @@ const styles = StyleSheet.create({
     },
 });
 
-export function HobbySectionTemplate({ data, titleSlot }: SlotTemplateProps) {
+export type HobbySectionTemplateProps = SlotTemplateProps & {
+    descriptionOptions?: TextProps;
+};
+
+export function HobbySectionTemplate({
+    data,
+    titleSlot,
+    descriptionOptions,
+}: HobbySectionTemplateProps) {
     return (
         <View style={styles.container}>
             {titleSlot({ title: 'Hobby' })}
-            <Text style={styles.summary}>{data.hobby}</Text>
+            <Text style={[styles.summary, convertTextPropsToStyle(descriptionOptions)]}>
+                {data.hobby}
+            </Text>
         </View>
     );
 }

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
-import { SlotTemplateProps, TemplateProps } from '../..';
+import { convertTextPropsToStyle, SlotTemplateProps, TemplateProps, TextProps } from '../..';
 import { months } from '@lib/months';
 import { renderDateRange } from '@lib/utils';
 
@@ -29,24 +29,43 @@ const styles = StyleSheet.create({
     },
 });
 
-export function ExperienceSectionTemplate({ data, titleSlot }: SlotTemplateProps) {
+export type ExperienceSectionTemplateProps = SlotTemplateProps & {
+    titleOptions?: TextProps;
+    subtitleOptions?: TextProps;
+    descriptionOptions?: TextProps;
+};
+
+export function ExperienceSectionTemplate({
+    data,
+    titleSlot,
+    titleOptions,
+    subtitleOptions,
+    descriptionOptions,
+}: ExperienceSectionTemplateProps) {
     return (
         <View style={styles.container}>
             {titleSlot({ title: 'Experience' })}
             <div style={styles.items}>
                 {data.experience.map((e, i) => (
                     <div key={i}>
-                        <Text style={styles.title}>
+                        <Text style={[styles.title, convertTextPropsToStyle(titleOptions)]}>
                             {[e.jobTitle, e.company].filter((x) => x).join(', ')}
                         </Text>
-                        <Text style={styles.subtitle}>
+                        <Text style={[styles.subtitle, convertTextPropsToStyle(subtitleOptions)]}>
                             {renderDateRange({
                                 startDate: e.startDate,
                                 endDate: e.endDate,
                                 isPresent: e.isPresent,
                             })}
                         </Text>
-                        <Text style={styles.description}>{e.description}</Text>
+                        <Text
+                            style={[
+                                styles.description,
+                                convertTextPropsToStyle(descriptionOptions),
+                            ]}
+                        >
+                            {e.description}
+                        </Text>
                     </div>
                 ))}
             </div>

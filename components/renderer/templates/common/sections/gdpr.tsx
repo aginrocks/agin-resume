@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
-import { SlotTemplateProps, TemplateProps } from '../..';
+import { convertTextPropsToStyle, SlotTemplateProps, TemplateProps, TextProps } from '../..';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,10 +14,16 @@ const styles = StyleSheet.create({
     },
 });
 
-export function GDPRSectionTemplate({ data }: TemplateProps) {
+export type GDPRSectionTemplateProps = TemplateProps & {
+    descriptionOptions?: TextProps;
+};
+
+export function GDPRSectionTemplate({ data, descriptionOptions }: GDPRSectionTemplateProps) {
     return (
         <View style={styles.container}>
-            <Text style={styles.gdpr}>{data.gdpr}</Text>
+            <Text style={[styles.gdpr, convertTextPropsToStyle(descriptionOptions)]}>
+                {data.gdpr}
+            </Text>
         </View>
     );
 }
