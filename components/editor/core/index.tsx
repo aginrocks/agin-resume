@@ -13,10 +13,11 @@ import { Section } from './section';
 import { CoreHeader } from './header';
 import { HobbySection, PersonalDataSection, SummarySection } from './sections';
 import { SkillsSection } from './sections/skills';
+import { ScrollArea } from '@components/ui/scroll-area';
 
 export function Core() {
     return (
-        <div className="flex-1 w-full bg-background rounded-2xl">
+        <ScrollArea className="flex-1 w-full bg-background rounded-2xl">
             <CoreHeader />
             <div className="flex flex-col p-4 gap-2.5">
                 <PersonalDataSection />
@@ -49,6 +50,6 @@ export function Core() {
                     icon={IconShieldLock}
                 ></Section>
             </div>
-        </div>
+        </ScrollArea>
     );
 }
