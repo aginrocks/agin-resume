@@ -24,8 +24,6 @@ export function Preview() {
 
     const form = useFormContext();
 
-    const values = form?.watch();
-
     useEffect(() => {
         const generatePDF = async (values: z.infer<typeof resumeSchema>) => {
             console.log('Generating PDF with values:', values);
