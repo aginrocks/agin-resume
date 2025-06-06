@@ -11,6 +11,7 @@ export function Editor() {
     const form = useForm<z.infer<typeof resumeSchema>>({
         resolver: zodResolver(resumeSchema),
         defaultValues: {
+            template: 'modern-2',
             personalData: {
                 firstName: 'John',
                 lastName: 'Doe',

@@ -3,6 +3,7 @@ import { Styles } from '@react-pdf/renderer';
 import z from 'zod';
 
 export * from './modern';
+export * from './modern-2';
 
 export type TemplateProps = {
     data: z.infer<typeof resumeSchema>;

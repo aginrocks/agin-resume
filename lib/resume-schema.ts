@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export const TEMPLATES = ['modern', 'modern-2'] as const;
+
 export const dateSchema = z.object({
     year: z
         .number()
@@ -26,6 +28,7 @@ export const experienceSchema = z.object({
 });
 
 export const resumeSchema = z.object({
+    template: z.enum(TEMPLATES).default('modern').optional(),
     personalData: z.object({
         firstName: z.string().min(1, 'First name is required'),
         lastName: z.string().min(1, 'Last name is required'),
