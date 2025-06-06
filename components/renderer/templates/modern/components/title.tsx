@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 14,
         fontWeight: 'bold',
+        fontFamily: 'Roboto',
         color: '#000000',
     },
     line: {

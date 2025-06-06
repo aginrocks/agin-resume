@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 24,
         fontWeight: 'bold',
+        fontFamily: 'Roboto',
         color: '#000000',
         marginBottom: '10px',
         margin: 0,

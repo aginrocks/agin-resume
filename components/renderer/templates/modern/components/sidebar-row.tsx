@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 10,
+        fontFamily: 'Roboto',
         color: '#ffffff',
     },
     iconContainer: {

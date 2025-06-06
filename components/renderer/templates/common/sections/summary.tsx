@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     },
     summary: {
         fontSize: 12,
+        fontFamily: 'Roboto',
     },
 });
 

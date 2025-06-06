@@ -3,6 +3,9 @@ import { ModernTemplate } from './templates';
 import z from 'zod';
 import { resumeSchema } from '@lib/resume-schema';
 
+// Import font configuration to register Roboto font
+import '@lib/fonts';
+
 export type RendererProps = {
     data: z.infer<typeof resumeSchema>;
 };
