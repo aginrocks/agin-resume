@@ -49,10 +49,10 @@ export function Preview() {
             },
         });
 
-        return () => callback();
+        generatePDF(form.getValues() as z.infer<typeof resumeSchema>);
 
-        // generatePDF();
-    }, []);
+        return () => callback();
+    }, [Renderer]);
 
     const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
         setNumPages(numPages);

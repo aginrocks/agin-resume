@@ -3,7 +3,7 @@ import { TitleProps } from '../..';
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 'bold',
         color: '#ffffff',
         marginBottom: '10px',
