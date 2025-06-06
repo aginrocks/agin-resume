@@ -60,7 +60,7 @@ export function Preview() {
 
     return (
         <div className="flex-1 w-full border-l border-sidebar-border bg-sidebar flex flex-col">
-            <PreviewHeader />
+            <PreviewHeader downloadUrl={pdfBlob || undefined} />
             <div className="flex justify-center items-center flex-col gap-4 flex-1 px-4">
                 {loading ? (
                     <div className="flex items-center justify-center h-full">

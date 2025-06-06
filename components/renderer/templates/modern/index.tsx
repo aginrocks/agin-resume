@@ -65,12 +65,14 @@ export function ModernTemplate({ data }: TemplateProps) {
                     titleSlot={SidebarTitle}
                     rowSlot={SidebarRow}
                 />
-                <SkillsSectionTemplate
-                    data={data}
-                    titleSlot={SidebarTitle}
-                    liSlot={SidebarLI}
-                    type="list"
-                />
+                {data.skills.length !== 0 && (
+                    <SkillsSectionTemplate
+                        data={data}
+                        titleSlot={SidebarTitle}
+                        liSlot={SidebarLI}
+                        type="list"
+                    />
+                )}
             </View>
             <View style={styles.page}>
                 <View style={styles.header}>
