@@ -10,6 +10,7 @@ import { Input } from '@components/ui/input';
 import { months } from '@lib/months';
 import { MonthYearSelector } from '@components/ui/month-year-selector';
 import { Checkbox } from '@components/ui/checkbox';
+import { renderDateRange } from '@lib/utils';
 
 export function ExperienceSection() {
     const form = useFormContext<z.infer<typeof resumeSchema>>();
@@ -37,18 +38,11 @@ export function ExperienceSection() {
                     return (
                         <Section
                             title={`${title}${company ? ` at ${company}` : ''}`}
-                            description={
-                                startDate.month !== undefined &&
-                                startDate.year !== undefined &&
-                                endDate.month !== undefined &&
-                                endDate.year !== undefined
-                                    ? `${months[startDate.month]} ${startDate.year} - ${
-                                          isPresent
-                                              ? 'Present'
-                                              : `${months[endDate.month]} ${endDate.year}`
-                                      }`
-                                    : undefined
-                            }
+                            description={renderDateRange({
+                                startDate,
+                                endDate,
+                                isPresent,
+                            })}
                             key={job.id}
                         >
                             <div className="grid grid-cols-2 gap-x-2 gap-y-3">
@@ -128,6 +122,19 @@ export function ExperienceSection() {
                                     disabled={isPresent}
                                 />
                             </div>
+                            <FormField
+                                control={form.control}
+                                name={`experience.${index}.description` as const}
+                                render={({ field }) => (
+                                    <FormItem className="mt-3">
+                                        <FormLabel>Description</FormLabel>
+                                        <FormControl>
+                                            <Textarea placeholder="" rows={4} {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                         </Section>
                     );
                 })}
