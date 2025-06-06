@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
         gap: '8px',
     },
     label: {
-        fontSize: 10,
-        fontFamily: 'Roboto',
+        fontSize: 12,
+        fontFamily: 'Montserrat',
         color: '#121212',
     },
 });

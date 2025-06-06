@@ -80,7 +80,7 @@ export function ModernTemplate({ data }: TemplateProps) {
             </View>
             <View style={styles.page}>
                 <View style={styles.header}>
-                    <Text style={styles.headerTitle}>
+                    <Text style={styles.headerTitle} hyphenationCallback={(w) => [w]}>
                         {data.personalData.firstName} {data.personalData.lastName}
                     </Text>
                     <Text style={styles.headerSubtitle}>{data.personalData.jobTitle}</Text>
