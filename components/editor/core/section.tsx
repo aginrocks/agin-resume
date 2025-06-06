@@ -31,6 +31,7 @@ export function Section({
                         'border-b': expanded,
                     })
                 )}
+                onClick={() => setExpanded(!expanded)}
             >
                 <div className="flex justify-between items-center p-2.5">
                     <div className="flex items-center gap-2.5">
@@ -51,7 +52,7 @@ export function Section({
                             <div className="text-muted-foreground text-xs">{description}</div>
                         </div>
                     </div>
-                    <Button size="icon" variant="ghost" onClick={() => setExpanded(!expanded)}>
+                    <Button size="icon" variant="ghost">
                         {expanded ? (
                             <IconChevronUp className="size-4 text-muted-foreground" />
                         ) : (

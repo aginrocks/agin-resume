@@ -25,8 +25,10 @@ const styles = StyleSheet.create({
         marginRight: '20px',
         backgroundColor: '#FBC17B',
         paddingHorizontal: '25px',
-        paddingVertical: '20px',
-        with: '100%',
+        // paddingVertical: '20px',
+        height: 72,
+        display: 'flex',
+        justifyContent: 'center',
         borderTopRightRadius: 9999,
         borderBottomRightRadius: 9999,
     },
@@ -37,6 +39,12 @@ const styles = StyleSheet.create({
         color: '#000000',
         marginBottom: '10px',
         margin: 0,
+    },
+    headerSubtitle: {
+        fontSize: 12,
+        fontFamily: 'Roboto',
+        margin: 0,
+        marginTop: 2,
     },
     page: {
         flex: 1,
@@ -67,6 +75,7 @@ export function ModernTemplate({ data }: TemplateProps) {
                     <Text style={styles.headerTitle}>
                         {data.personalData.firstName} {data.personalData.lastName}
                     </Text>
+                    <Text style={styles.headerSubtitle}>{data.personalData.jobTitle}</Text>
                 </View>
                 <View style={styles.content}>
                     <SummarySectionTemplate data={data} titleSlot={Title} />
