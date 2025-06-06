@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         gap: '8px',
     },
     text: {
-        fontSize: 10,
+        fontSize: 12,
         color: '#ffffff',
     },
     dot: {
