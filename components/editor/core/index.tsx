@@ -10,10 +10,12 @@ import {
     IconUser,
 } from '@tabler/icons-react';
 import { Section } from './section';
+import { CoreHeader } from './header';
 
 export function Core() {
     return (
         <div className="flex-1 w-full bg-background rounded-2xl">
+            <CoreHeader />
             <div className="flex flex-col p-4 gap-2.5">
                 <Section
                     title="Personal Data"
