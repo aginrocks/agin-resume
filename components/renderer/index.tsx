@@ -1,10 +1,11 @@
 import { Document, Page, Text } from '@react-pdf/renderer';
+import { ModernTemplate } from './templates';
 
 export function Renderer() {
     return (
         <Document>
             <Page size="A4">
-                <Text>Sample PDF Document</Text>
+                <ModernTemplate />
             </Page>
         </Document>
     );
