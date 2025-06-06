@@ -11,7 +11,7 @@ import {
 } from '@tabler/icons-react';
 import { Section } from './section';
 import { CoreHeader } from './header';
-import { PersonalDataSection } from './sections/personal-data';
+import { PersonalDataSection, SummarySection } from './sections';
 
 export function Core() {
     return (
@@ -19,11 +19,7 @@ export function Core() {
             <CoreHeader />
             <div className="flex flex-col p-4 gap-2.5">
                 <PersonalDataSection />
-                <Section
-                    title="Summary"
-                    description="A brief summary of your experience and skills"
-                    icon={IconAlignLeft}
-                ></Section>
+                <SummarySection />
                 <Section
                     title="Education"
                     description="Your educational background"
