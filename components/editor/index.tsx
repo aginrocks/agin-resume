@@ -6,10 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormReturn } from 'react-hook-form';
 import { resumeSchema } from '@lib/resume-schema';
 import { createContext } from 'react';
-
-export const ResumeContext = createContext<UseFormReturn<z.infer<typeof resumeSchema>> | null>(
-    null
-);
+import { Form } from '@components/ui/form';
 
 export function Editor() {
     const form = useForm<z.infer<typeof resumeSchema>>({
@@ -17,11 +14,11 @@ export function Editor() {
     });
 
     return (
-        <ResumeContext.Provider value={form}>
+        <Form {...form}>
             <div className="flex h-screen">
                 <Core />
                 <Preview />
             </div>
-        </ResumeContext.Provider>
+        </Form>
     );
 }

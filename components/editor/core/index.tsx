@@ -11,18 +11,14 @@ import {
 } from '@tabler/icons-react';
 import { Section } from './section';
 import { CoreHeader } from './header';
+import { PersonalDataSection } from './sections/personal-data';
 
 export function Core() {
     return (
         <div className="flex-1 w-full bg-background rounded-2xl">
             <CoreHeader />
             <div className="flex flex-col p-4 gap-2.5">
-                <Section
-                    title="Personal Data"
-                    description="Your personal information"
-                    icon={IconUser}
-                    canDrag={false}
-                ></Section>
+                <PersonalDataSection />
                 <Section
                     title="Summary"
                     description="A brief summary of your experience and skills"

@@ -7,8 +7,10 @@ import { Renderer } from '@components/renderer';
 // Import required CSS for react-pdf
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
-import { ResumeContext } from '..';
 import { PreviewHeader } from './header';
+import { FieldValues, useFormContext } from 'react-hook-form';
+import { z } from 'zod';
+import { resumeSchema } from '@lib/resume-schema';
 
 // Set up the worker with matching version
 if (typeof window !== 'undefined') {
@@ -20,15 +22,17 @@ export function Preview() {
     const [numPages, setNumPages] = useState<number | null>(null);
     const [loading, setLoading] = useState(true);
 
-    const form = useContext(ResumeContext);
+    const form = useFormContext();
 
     const values = form?.watch();
 
     useEffect(() => {
-        const generatePDF = async () => {
+        const generatePDF = async (values: z.infer<typeof resumeSchema>) => {
+            console.log('Generating PDF with values:', values);
+
             try {
                 setLoading(true);
-                const blob = await pdf(<Renderer />).toBlob();
+                const blob = await pdf(<Renderer data={values} />).toBlob();
                 const url = URL.createObjectURL(blob);
                 setPdfBlob(url);
             } catch (error) {
@@ -38,7 +42,18 @@ export function Preview() {
             }
         };
 
-        generatePDF();
+        const callback = form.subscribe({
+            formState: {
+                values: true,
+            },
+            callback: ({ values }) => {
+                generatePDF(values as z.infer<typeof resumeSchema>);
+            },
+        });
+
+        return () => callback();
+
+        // generatePDF();
     }, []);
 
     const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
