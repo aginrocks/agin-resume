@@ -27,6 +27,14 @@ export const experienceSchema = z.object({
     location: z.string().optional(),
 });
 
+export const LANGUAGE_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const;
+
+export const languageSchema = z.object({
+    language: z.string().min(1, 'Language is required'),
+    level: z.enum(LANGUAGE_LEVELS).optional(),
+    isNative: z.boolean().default(false).optional(),
+});
+
 export const resumeSchema = z.object({
     template: z.enum(TEMPLATES).default('modern').optional(),
     personalData: z.object({
@@ -41,4 +49,5 @@ export const resumeSchema = z.object({
     skills: z.array(z.string()),
     hobby: z.string().optional(),
     gdpr: z.string().optional(),
+    languages: z.array(languageSchema),
 });

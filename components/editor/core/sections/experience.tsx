@@ -43,6 +43,8 @@ export function ExperienceSection() {
                                 endDate,
                                 isPresent,
                             })}
+                            canDelete
+                            onDelete={() => jobs.remove(index)}
                             key={job.id}
                         >
                             <div className="grid grid-cols-2 gap-x-2 gap-y-3">

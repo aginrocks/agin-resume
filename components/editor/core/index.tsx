@@ -15,6 +15,7 @@ import {
     ExperienceSection,
     GDPRSection,
     HobbySection,
+    LanguagesSection,
     PersonalDataSection,
     SummarySection,
 } from './sections';
@@ -35,11 +36,7 @@ export function Core() {
                 ></Section>
                 <ExperienceSection />
                 <SkillsSection />
-                <Section
-                    title="Languages"
-                    description="Languages you speak and your proficiency"
-                    icon={IconLanguage}
-                ></Section>
+                <LanguagesSection />
                 <Section
                     title="Links"
                     description="Your social media profiles, personal website etc."

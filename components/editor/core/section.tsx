@@ -1,7 +1,13 @@
 import { Button } from '@components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@components/ui/card';
 import { cn } from '@lib/utils';
-import { Icon, IconChevronDown, IconChevronUp, IconGripVertical } from '@tabler/icons-react';
+import {
+    Icon,
+    IconChevronDown,
+    IconChevronUp,
+    IconGripVertical,
+    IconTrash,
+} from '@tabler/icons-react';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 
@@ -11,6 +17,8 @@ export type SectionProps = React.ComponentProps<'div'> & {
     icon?: Icon;
     children?: React.ReactNode;
     canDrag?: boolean;
+    canDelete?: boolean;
+    onDelete?: () => void;
 };
 
 export function Section({
@@ -19,6 +27,9 @@ export function Section({
     icon: Icon,
     canDrag = true,
     children,
+    canDelete = false,
+    onDragLeaveCapture,
+    onDelete,
     ...props
 }: SectionProps) {
     const [expanded, setExpanded] = useState(false);
@@ -53,13 +64,20 @@ export function Section({
                             <div className="text-muted-foreground text-xs">{description}</div>
                         </div>
                     </div>
-                    <Button size="icon" variant="ghost">
-                        {expanded ? (
-                            <IconChevronUp className="size-4 text-muted-foreground" />
-                        ) : (
-                            <IconChevronDown className="size-4 text-muted-foreground" />
+                    <div className="flex items-center">
+                        {canDelete && (
+                            <Button size="xsIcon" variant="ghost" onClick={onDelete}>
+                                <IconTrash className="size-4 text-muted-foreground" />
+                            </Button>
                         )}
-                    </Button>
+                        <Button size="xsIcon" variant="ghost">
+                            {expanded ? (
+                                <IconChevronUp className="size-4 text-muted-foreground" />
+                            ) : (
+                                <IconChevronDown className="size-4 text-muted-foreground" />
+                            )}
+                        </Button>
+                    </div>
                 </div>
             </div>
             {expanded && <div className="p-4">{children}</div>}
