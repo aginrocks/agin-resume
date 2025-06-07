@@ -1,7 +1,9 @@
 import { Button } from '@components/ui/button';
 import { cn } from '@lib/utils';
-import { IconDownload, IconPrinter } from '@tabler/icons-react';
+import { IconArrowLeft, IconDownload, IconPrinter } from '@tabler/icons-react';
 import clsx from 'clsx';
+import { useAtomValue, useSetAtom } from 'jotai';
+import { FullUiAtom, TabAtom } from '..';
 
 export type PreviewHeaderProps = {
     downloadUrl?: string;
@@ -9,9 +11,26 @@ export type PreviewHeaderProps = {
 };
 
 export function PreviewHeader({ downloadUrl, canPreview = true }: PreviewHeaderProps) {
+    const fullUi = useAtomValue(FullUiAtom);
+    const setTab = useSetAtom(TabAtom);
+
     return (
-        <div className="flex p-4 pl-5.5 pb-0 justify-between items-center">
-            <div className="font-semibold text-lg">Preview</div>
+        <div
+            className={cn(
+                'flex p-4 pb-0 justify-between items-center',
+                clsx({
+                    'pl-5.5': fullUi,
+                })
+            )}
+        >
+            <div className="flex items-center gap-1">
+                {!fullUi && (
+                    <Button variant="ghost" size="xsIcon" onClick={() => setTab('core')}>
+                        <IconArrowLeft />
+                    </Button>
+                )}
+                <div className="font-semibold text-lg">Preview</div>
+            </div>
             <div
                 className={cn(
                     'flex gap-2.5',

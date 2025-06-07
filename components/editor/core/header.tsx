@@ -1,11 +1,16 @@
 import { Button } from '@components/ui/button';
 import { resumeSchema, TEMPLATES } from '@lib/resume-schema';
 import { IconBrandGithub, IconBrush, IconDownload, IconPrinter } from '@tabler/icons-react';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useFormContext } from 'react-hook-form';
 import { z } from 'zod';
+import { FullUiAtom, TabAtom } from '..';
 
 export function CoreHeader() {
     const form = useFormContext<z.infer<typeof resumeSchema>>();
+
+    const fullUi = useAtomValue(FullUiAtom);
+    const setTab = useSetAtom(TabAtom);
 
     return (
         <div className="flex p-4 pb-0 justify-between items-center">
@@ -34,6 +39,12 @@ export function CoreHeader() {
                     <IconBrandGithub />
                     Star on GitHub
                 </Button>
+                {!fullUi && (
+                    <Button variant="default" size="sm" onClick={() => setTab('preview')}>
+                        <IconDownload />
+                        Preview and Download
+                    </Button>
+                )}
             </div>
         </div>
     );
