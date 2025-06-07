@@ -1,6 +1,6 @@
-# Agin Resume
-
 ![](screenshot-2.png)
+
+# Agin Resume
 
 Agin Resume is an open source resume builder written in Next.js. Create beautiful, professional resumes with live preview and PDF export.
 
