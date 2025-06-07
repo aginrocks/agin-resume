@@ -17,9 +17,9 @@ export type RenderDateRangeProps = {
 export function renderDateRange(props: RenderDateRangeProps) {
     const { startDate, endDate, isPresent } = props;
 
-    if (startDate.month === undefined && startDate.year === undefined) return undefined;
+    if (startDate.month === undefined || startDate.year === undefined) return undefined;
 
-    if (endDate.month === undefined && endDate.year === undefined && !isPresent) return undefined;
+    if ((endDate.month === undefined || endDate.year === undefined) && !isPresent) return undefined;
 
     return `${months[startDate.month as number]} ${startDate.year} - ${
         isPresent ? 'Present' : `${months[endDate.month as number]} ${endDate.year}`

@@ -22,6 +22,7 @@ import {
 import { SkillsSection } from './sections/skills';
 import { ScrollArea } from '@components/ui/scroll-area';
 import { LinksSection } from './sections/links';
+import { EducationSection } from './sections/education';
 
 export function Core() {
     return (
@@ -30,11 +31,7 @@ export function Core() {
             <div className="flex flex-col p-4 gap-2.5">
                 <PersonalDataSection />
                 <SummarySection />
-                <Section
-                    title="Education"
-                    description="Your educational background"
-                    icon={IconSchool}
-                ></Section>
+                <EducationSection />
                 <ExperienceSection />
                 <SkillsSection />
                 <LanguagesSection />

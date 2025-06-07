@@ -27,6 +27,16 @@ export const experienceSchema = z.object({
     location: z.string().optional(),
 });
 
+export const educationSchema = z.object({
+    institution: z.string().min(1, 'Institution name is required'),
+    degree: z.string().min(1, 'Degree is required'),
+    grade: z.string().optional(),
+    startDate: dateSchema,
+    endDate: dateSchema,
+    description: z.string().optional(),
+    isPresent: z.boolean().default(false).optional(),
+});
+
 export const LANGUAGE_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const;
 
 export const languageSchema = z.object({
@@ -51,6 +61,7 @@ export const resumeSchema = z.object({
         photo: z.string().optional(),
     }),
     overview: z.string().optional(),
+    education: z.array(educationSchema),
     experience: z.array(experienceSchema),
     skills: z.array(z.string()),
     hobby: z.string().optional(),
