@@ -50,7 +50,11 @@ export function LanguagesSectionTemplate({
 
                     return (
                         <View key={i}>
-                            {progressSlot({ label: l.language, description: l.level, percentage })}
+                            {progressSlot({
+                                label: l.language,
+                                description: l.isNative ? 'Native' : l.level,
+                                percentage,
+                            })}
                         </View>
                     );
                 })}
