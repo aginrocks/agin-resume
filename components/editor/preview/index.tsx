@@ -22,7 +22,7 @@ export function Preview() {
     return (
         <div className="flex-1 w-full border-l border-sidebar-border bg-sidebar flex flex-col">
             <PreviewHeader downloadUrl={pdfBlob || undefined} canPreview={canPreview} />
-            <div className="flex justify-center items-center flex-col gap-4 flex-1 px-4">
+            <div className="flex justify-center items-center flex-col gap-4 flex-1 p-4">
                 {canPreview ? (
                     <PreviewContent pdfBlob={pdfBlob} setPdfBlob={setPdfBlob} />
                 ) : (
