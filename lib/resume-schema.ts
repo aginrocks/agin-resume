@@ -35,6 +35,11 @@ export const languageSchema = z.object({
     isNative: z.boolean().default(false).optional(),
 });
 
+export const linkSchema = z.object({
+    label: z.string().min(1, 'Label is required'),
+    url: z.string().url('Invalid URL').min(1, 'URL is required'),
+});
+
 export const resumeSchema = z.object({
     template: z.enum(TEMPLATES).default('modern').optional(),
     personalData: z.object({
@@ -51,4 +56,5 @@ export const resumeSchema = z.object({
     hobby: z.string().optional(),
     gdpr: z.string().optional(),
     languages: z.array(languageSchema),
+    links: z.array(linkSchema),
 });

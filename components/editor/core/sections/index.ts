@@ -1,4 +1,4 @@
-export * from './personal-data';
+export * from './personal-data/index';
 export * from './summary';
 export * from './hobby';
 export * from './skills';

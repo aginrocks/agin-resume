@@ -21,6 +21,7 @@ import {
 } from './sections';
 import { SkillsSection } from './sections/skills';
 import { ScrollArea } from '@components/ui/scroll-area';
+import { LinksSection } from './sections/links';
 
 export function Core() {
     return (
@@ -37,11 +38,7 @@ export function Core() {
                 <ExperienceSection />
                 <SkillsSection />
                 <LanguagesSection />
-                <Section
-                    title="Links"
-                    description="Your social media profiles, personal website etc."
-                    icon={IconLink}
-                ></Section>
+                <LinksSection />
                 <HobbySection />
                 <GDPRSection />
             </div>
