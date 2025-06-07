@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agin Resume
 
-## Getting Started
+![](screenshot.png)
 
-First, run the development server:
+Agin Resume is an open source resume builder written in Next.js. Create beautiful, professional resumes with live preview and PDF export.
+
+## Features
+
+-   ✏️ **Live editing** with real-time preview
+-   🎨 **Multiple templates** (Modern, Modern-2, Simple)
+-   📷 **Photo upload** with cropping functionality
+-   🌐 **Multi-language support** _(coming soon!)_
+-   🔗 **Social links** support
+-   💾 **PDF export** with print support
+-   📱 **Responsive design** for mobile and desktop
+-   🧰 **Drag and drop** section management _(coming soon!)_
+
+More features coming soon!
+
+## Demo
+
+You can try the app live at: [resume.agin.rocks](https://resume.agin.rocks)
+
+## Roadmap
+
+-   [x] Core resume editing features
+-   [x] Live PDF preview
+-   [x] Multiple resume templates
+-   [x] Photo upload with cropping
+-   [x] Skills management
+-   [x] Experience and education sections
+-   [x] Social links integration
+-   [x] PDF export and printing
+-   [x] Responsive design
+-   [ ] Template customization
+-   [ ] Resume sharing links
+-   [ ] Custom sections
+-   [ ] Multi-language support
+-   [ ] Import from LinkedIn
+-   [ ] Sections reordering
+-   [ ] Saving as JSON
+
+## Building locally
+
+To build the app locally, first clone the repo and `cd` into the folder.
+
+Install dependencies by running:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development mode
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app will be available at `http://localhost:3000`.
 
-## Learn More
+### Building for production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   **Framework:** Next.js 15
+-   **UI:** React 19, Tailwind CSS, Shadcn UI
+-   **PDF Generation:** @react-pdf/renderer
+-   **Forms:** React Hook Form, Zod validation
+-   **State Management:** Jotai
+-   **Image Processing:** react-advanced-cropper
+-   **Typography:** Montserrat, Roboto fonts
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+components/
+├── editor/          # Main resume editor
+│   ├── core/        # Form sections and editing
+│   └── preview/     # PDF preview functionality
+├── renderer/        # PDF template rendering
+│   └── templates/   # Resume templates (Modern, Simple, etc.)
+├── cropper/         # Image cropping functionality
+└── ui/              # Reusable UI components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/
+├── resume-schema.ts # Zod schema for resume data
+├── fonts.ts         # Font configuration
+└── utils.ts         # Utility functions
+```
+
+## Templates
+
+Currently available templates:
+
+-   **Modern** - Professional template with sidebar layout
+-   **Modern-2** - Clean template with accent colors
+-   **Simple** - Minimalist single-column layout
+
+## Contributing
+
+We welcome contributions!
+
+## License
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
