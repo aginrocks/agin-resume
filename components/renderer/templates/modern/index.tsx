@@ -4,6 +4,7 @@ import {
     ExperienceSectionTemplate,
     GDPRSectionTemplate,
     PersonalDataSectionTemplate,
+    Photo,
 } from '../common/sections';
 import { SidebarLI, SidebarTitle, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
@@ -51,6 +52,10 @@ const styles = StyleSheet.create({
         margin: 0,
         marginTop: 2,
     },
+    photo: {
+        alignItems: 'center',
+        marginBottom: 8,
+    },
     page: {
         flex: 1,
     },
@@ -64,6 +69,11 @@ export function ModernTemplate({ data }: TemplateProps) {
     return (
         <View style={styles.root}>
             <View style={styles.sidebar}>
+                {data.personalData.photo && (
+                    <View style={styles.photo}>
+                        <Photo data={data} />
+                    </View>
+                )}
                 <PersonalDataSectionTemplate
                     data={data}
                     titleSlot={SidebarTitle}

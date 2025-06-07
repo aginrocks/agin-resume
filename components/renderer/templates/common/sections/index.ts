@@ -4,3 +4,4 @@ export * from './hobby';
 export * from './summary';
 export * from './gdpr';
 export * from './experience';
+export * from './photo';

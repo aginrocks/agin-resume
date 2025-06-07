@@ -4,6 +4,7 @@ import {
     ExperienceSectionTemplate,
     GDPRSectionTemplate,
     PersonalDataSectionTemplate,
+    Photo,
 } from '../common/sections';
 import { SidebarLI, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
@@ -45,6 +46,9 @@ const styles = StyleSheet.create({
         marginTop: 2,
         textAlign: 'center',
     },
+    photo: {
+        alignItems: 'center',
+    },
     page: {
         flex: 1,
     },
@@ -70,6 +74,11 @@ export function Modern2Template({ data }: TemplateProps) {
     return (
         <View style={styles.root}>
             <View style={styles.sidebar}>
+                {data.personalData.photo && (
+                    <View style={styles.photo}>
+                        <Photo data={data} />
+                    </View>
+                )}
                 <View style={styles.header}>
                     <Text style={styles.headerTitle} hyphenationCallback={(w) => [w]}>
                         {data.personalData.firstName} {data.personalData.lastName}

@@ -44,7 +44,7 @@ export function PhotoUploader({ ...props }: React.ComponentProps<'div'>) {
                 value={files}
                 onValueChange={setFiles}
                 onFileReject={onFileReject}
-                accept="image/*"
+                accept="image/png,image/jpeg"
                 onFileAccept={onFileAccept}
             >
                 <FileUploadDropzone>
@@ -85,8 +85,8 @@ export function PhotoUploader({ ...props }: React.ComponentProps<'div'>) {
                 open={cropper}
                 onOpenChange={setCropper}
                 imageUrl={image || ''}
-                onCropped={() => {
-                    form.setValue('personalData.photo', image || '');
+                onCropped={(image) => {
+                    form.setValue('personalData.photo', image);
                     setImage(null);
                 }}
             />
