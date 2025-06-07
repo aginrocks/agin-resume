@@ -71,7 +71,7 @@ export function MonthYearSelector({
                                 <SelectContent className="max-h-100">
                                     {new Array(100)
                                         .fill(0)
-                                        .map((x, i) => i + new Date().getFullYear() - 100)
+                                        .map((x, i) => i + new Date().getFullYear() - 99)
                                         .reverse()
                                         .map((m, i) => (
                                             <SelectItem value={m.toString()} key={m}>

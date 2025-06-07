@@ -1,15 +1,25 @@
 import { Button } from '@components/ui/button';
+import { cn } from '@lib/utils';
 import { IconDownload, IconPrinter } from '@tabler/icons-react';
+import clsx from 'clsx';
 
 export type PreviewHeaderProps = {
     downloadUrl?: string;
+    canPreview?: boolean;
 };
 
-export function PreviewHeader({ downloadUrl }: PreviewHeaderProps) {
+export function PreviewHeader({ downloadUrl, canPreview = true }: PreviewHeaderProps) {
     return (
         <div className="flex p-4 pl-5.5 pb-0 justify-between items-center">
             <div className="font-semibold text-lg">Preview</div>
-            <div className="flex gap-2.5">
+            <div
+                className={cn(
+                    'flex gap-2.5',
+                    clsx({
+                        invisible: !canPreview,
+                    })
+                )}
+            >
                 <Button
                     variant="outline"
                     onClick={() => {
