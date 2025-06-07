@@ -25,3 +25,11 @@ export function renderDateRange(props: RenderDateRangeProps) {
         isPresent ? 'Present' : `${months[endDate.month as number]} ${endDate.year}`
     }`;
 }
+
+export function blobToBase64(blob: Blob): Promise<typeof FileReader.prototype.result> {
+    return new Promise((resolve, _) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+    });
+}

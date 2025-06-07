@@ -43,6 +43,7 @@ export const resumeSchema = z.object({
         email: z.string().email('Invalid email address'),
         phone: z.string().optional(),
         jobTitle: z.string().optional(),
+        photo: z.string().optional(),
     }),
     overview: z.string().optional(),
     experience: z.array(experienceSchema),

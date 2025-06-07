@@ -1,6 +1,6 @@
 'use client';
 import { IconUser } from '@tabler/icons-react';
-import { Section } from '../section';
+import { Section } from '../../section';
 import { useContext, useState } from 'react';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@components/ui/form';
 import { Input } from '@components/ui/input';
@@ -9,11 +9,10 @@ import { z } from 'zod';
 import { resumeSchema } from '@lib/resume-schema';
 import { CropperDialog } from '@components/cropper';
 import { Button } from '@components/ui/button';
+import { PhotoUploader } from './photo-uploader';
 
 export function PersonalDataSection() {
     const form = useFormContext<z.infer<typeof resumeSchema>>();
-
-    const [cropper, setCropper] = useState(false);
 
     return (
         <Section
@@ -23,6 +22,7 @@ export function PersonalDataSection() {
             canDrag={false}
         >
             <div className="flex flex-col gap-3">
+                <PhotoUploader className="mb-1" />
                 <div className="grid grid-cols-2 gap-2">
                     <FormField
                         control={form.control}
@@ -91,12 +91,6 @@ export function PersonalDataSection() {
                     )}
                 />
             </div>
-            <CropperDialog
-                open={cropper}
-                onOpenChange={setCropper}
-                imageUrl="https://images.unsplash.com/photo-1599140849279-1014532882fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"
-            />
-            <Button onClick={() => setCropper(true)}>Crop</Button>
         </Section>
     );
 }
