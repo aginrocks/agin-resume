@@ -14,6 +14,8 @@ import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
 import { Progress } from './components/progress';
 import { EducationSectionTemplate } from '../common/sections/education';
+import { LinksSectionTemplate } from '../common/sections/links';
+import { Link } from './components/link';
 
 const styles = StyleSheet.create({
     root: {
@@ -111,6 +113,9 @@ export function ModernTemplate({ data }: TemplateProps) {
                         titleSlot={SidebarTitle}
                         progressSlot={Progress}
                     />
+                )}
+                {data.links.length !== 0 && (
+                    <LinksSectionTemplate data={data} titleSlot={SidebarTitle} linkSlot={Link} />
                 )}
             </View>
             <View style={styles.page}>

@@ -7,12 +7,13 @@ import {
     PersonalDataSectionTemplate,
     Photo,
 } from '../common/sections';
-import { Progress, SidebarLI, Title } from './components';
+import { Link, Progress, SidebarLI, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
 import { EducationSectionTemplate } from '../common/sections/education';
+import { LinksSectionTemplate } from '../common/sections/links';
 
 const styles = StyleSheet.create({
     root: {
@@ -106,6 +107,9 @@ export function Modern2Template({ data }: TemplateProps) {
                         progressSlot={Progress}
                         rowsGap={8}
                     />
+                )}
+                {data.links.length !== 0 && (
+                    <LinksSectionTemplate data={data} titleSlot={Title} linkSlot={Link} />
                 )}
             </View>
             <View style={styles.page}>

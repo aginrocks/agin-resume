@@ -6,12 +6,13 @@ import {
     LanguagesSectionTemplate,
     PersonalDataSectionTemplate,
 } from '../common/sections';
-import { Progress, SidebarLI, Title } from './components';
+import { Link, Progress, SidebarLI, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
 import { EducationSectionTemplate } from '../common/sections/education';
+import { LinksSectionTemplate } from '../common/sections/links';
 
 const styles = StyleSheet.create({
     root: {
@@ -109,6 +110,9 @@ export function SimpleTemplate({ data }: TemplateProps) {
                         titleSlot={Title}
                         descriptionOptions={description}
                     />
+                )}
+                {data.links.length !== 0 && (
+                    <LinksSectionTemplate data={data} titleSlot={Title} linkSlot={Link} />
                 )}
                 {data.gdpr && <GDPRSectionTemplate data={data} descriptionOptions={description} />}
             </View>

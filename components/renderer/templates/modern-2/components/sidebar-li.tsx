@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 12,
         fontFamily: 'Montserrat',
+        fontWeight: 'medium',
         color: '#121212',
     },
     dot: {
