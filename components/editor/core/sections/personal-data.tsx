@@ -1,15 +1,19 @@
 'use client';
 import { IconUser } from '@tabler/icons-react';
 import { Section } from '../section';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@components/ui/form';
 import { Input } from '@components/ui/input';
 import { useFormContext } from 'react-hook-form';
 import { z } from 'zod';
 import { resumeSchema } from '@lib/resume-schema';
+import { CropperDialog } from '@components/cropper';
+import { Button } from '@components/ui/button';
 
 export function PersonalDataSection() {
     const form = useFormContext<z.infer<typeof resumeSchema>>();
+
+    const [cropper, setCropper] = useState(false);
 
     return (
         <Section
@@ -87,6 +91,12 @@ export function PersonalDataSection() {
                     )}
                 />
             </div>
+            <CropperDialog
+                open={cropper}
+                onOpenChange={setCropper}
+                imageUrl="https://images.unsplash.com/photo-1599140849279-1014532882fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"
+            />
+            <Button onClick={() => setCropper(true)}>Crop</Button>
         </Section>
     );
 }
