@@ -9,6 +9,12 @@ import { FullUiAtom, TabAtom } from '..';
 export function CoreHeader() {
     const form = useFormContext<z.infer<typeof resumeSchema>>();
 
+    const firstName = form.watch('personalData.firstName');
+    const lastName = form.watch('personalData.lastName');
+    const email = form.watch('personalData.email');
+
+    const canPreview = !!(firstName && lastName && email);
+
     const fullUi = useAtomValue(FullUiAtom);
     const setTab = useSetAtom(TabAtom);
 
@@ -21,7 +27,7 @@ export function CoreHeader() {
             <div className="flex gap-2">
                 <Button
                     variant="outline"
-                    size="sm"
+                    size={fullUi ? 'sm' : 'default'}
                     onClick={() => {
                         // TODO: Implement actual template chooser (a modal with template previews)
                         const template = form.getValues('template');
@@ -33,16 +39,21 @@ export function CoreHeader() {
                     }}
                 >
                     <IconBrush />
-                    Change Template
+                    <div className="max-md:hidden">Change Template</div>
                 </Button>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size={fullUi ? 'sm' : 'default'}>
                     <IconBrandGithub />
-                    Star on GitHub
+                    <div className="max-md:hidden">Star on GitHub</div>
                 </Button>
                 {!fullUi && (
-                    <Button variant="default" size="sm" onClick={() => setTab('preview')}>
+                    <Button
+                        variant="default"
+                        size={fullUi ? 'sm' : 'default'}
+                        onClick={() => setTab('preview')}
+                        disabled={!canPreview}
+                    >
                         <IconDownload />
-                        Preview and Download
+                        <div className="max-sm:hidden">Preview and Download</div>
                     </Button>
                 )}
             </div>

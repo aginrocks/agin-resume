@@ -40,7 +40,6 @@ export function PhotoUploader({ ...props }: React.ComponentProps<'div'>) {
     return (
         <div {...props}>
             <FileUpload
-                maxFiles={1}
                 value={files}
                 onValueChange={setFiles}
                 onFileReject={onFileReject}
@@ -67,7 +66,7 @@ export function PhotoUploader({ ...props }: React.ComponentProps<'div'>) {
                         </Button>
                     </FileUploadTrigger>
                 </FileUploadDropzone>
-                <FileUploadList>
+                {/* <FileUploadList>
                     {files.map((file, index) => (
                         <FileUploadItem key={index} value={file}>
                             <FileUploadItemPreview />
@@ -79,7 +78,7 @@ export function PhotoUploader({ ...props }: React.ComponentProps<'div'>) {
                             </FileUploadItemDelete>
                         </FileUploadItem>
                     ))}
-                </FileUploadList>
+                </FileUploadList> */}
             </FileUpload>
             <CropperDialog
                 open={cropper}

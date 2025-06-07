@@ -25,24 +25,32 @@ export function CropperDialog({ imageUrl, onCropped, ...props }: CropperProps) {
     const onChange = (cropper: CropperRef) => {
         console.log(cropper.getCoordinates(), cropper.getCanvas());
     };
-
     const onDone = useCallback(async () => {
         if (!ref.current) return;
 
-        const image = ref.current.getImage();
+        // Get the canvas with the cropped image
+        const canvas = ref.current.getCanvas();
+        if (!canvas) return;
 
-        if (!image?.src) return;
+        // Convert the cropped canvas to a blob
+        const blob = await new Promise<Blob>((resolve) => {
+            canvas.toBlob(
+                (blob) => {
+                    if (blob) resolve(blob);
+                },
+                'image/jpeg',
+                0.95
+            );
+        });
 
-        const blob = await fetch(image.src).then((res) => res.blob());
+        // Convert blob to base64
         const base64Image = await blobToBase64(blob);
 
         console.log('Cropped image:', base64Image);
 
-        URL.revokeObjectURL(image.src);
-
         onCropped(base64Image as string);
         props.onOpenChange?.(false);
-    }, []);
+    }, [onCropped, props]);
 
     return (
         <Dialog {...props}>
@@ -54,7 +62,7 @@ export function CropperDialog({ imageUrl, onCropped, ...props }: CropperProps) {
                         the circle to select the desired portion of the image.
                     </DialogDescription>
                 </DialogHeader>
-                <div className="w-115.5 h-115.5">
+                <div className="max-w-115.5 max-h-115.5">
                     <Cropper
                         src={imageUrl}
                         onChange={onChange}
@@ -62,6 +70,7 @@ export function CropperDialog({ imageUrl, onCropped, ...props }: CropperProps) {
                         className="cropper rounded-md"
                         imageRestriction={ImageRestriction.fillArea}
                         ref={ref}
+                        defaultSize={{ width: 999999, height: 999999 }}
                     />
                 </div>
                 <div className="flex justify-end">

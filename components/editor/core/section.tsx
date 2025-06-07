@@ -25,7 +25,7 @@ export function Section({
     title,
     description,
     icon: Icon,
-    canDrag = true,
+    canDrag = false,
     children,
     canDelete = false,
     onDragLeaveCapture,
