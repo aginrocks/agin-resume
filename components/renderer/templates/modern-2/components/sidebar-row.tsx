@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 10,
-        fontFamily: 'Roboto',
+        fontFamily: 'Montserrat',
         color: '#121212',
     },
 });

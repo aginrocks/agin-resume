@@ -3,6 +3,7 @@ import { TemplateProps } from '..';
 import {
     ExperienceSectionTemplate,
     GDPRSectionTemplate,
+    LanguagesSectionTemplate,
     PersonalDataSectionTemplate,
     Photo,
 } from '../common/sections';
@@ -11,6 +12,7 @@ import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
+import { Progress } from './components/progress';
 
 const styles = StyleSheet.create({
     root: {
@@ -85,6 +87,13 @@ export function ModernTemplate({ data }: TemplateProps) {
                         titleSlot={SidebarTitle}
                         liSlot={SidebarLI}
                         type="list"
+                    />
+                )}
+                {data.languages.length !== 0 && (
+                    <LanguagesSectionTemplate
+                        data={data}
+                        titleSlot={SidebarTitle}
+                        progressSlot={Progress}
                     />
                 )}
             </View>

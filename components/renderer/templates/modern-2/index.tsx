@@ -3,10 +3,11 @@ import { TemplateProps, TextProps } from '..';
 import {
     ExperienceSectionTemplate,
     GDPRSectionTemplate,
+    LanguagesSectionTemplate,
     PersonalDataSectionTemplate,
     Photo,
 } from '../common/sections';
-import { SidebarLI, Title } from './components';
+import { Progress, SidebarLI, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
@@ -92,6 +93,14 @@ export function Modern2Template({ data }: TemplateProps) {
                         titleSlot={Title}
                         liSlot={SidebarLI}
                         type="list"
+                    />
+                )}
+                {data.languages.length !== 0 && (
+                    <LanguagesSectionTemplate
+                        data={data}
+                        titleSlot={Title}
+                        progressSlot={Progress}
+                        rowsGap={8}
                     />
                 )}
             </View>

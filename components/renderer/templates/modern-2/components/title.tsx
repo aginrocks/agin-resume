@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         fontWeight: 'bold',
-        fontFamily: 'Roboto',
+        fontFamily: 'Montserrat',
         color: '#121212',
     },
     line: {

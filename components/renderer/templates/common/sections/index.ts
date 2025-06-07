@@ -5,3 +5,4 @@ export * from './summary';
 export * from './gdpr';
 export * from './experience';
 export * from './photo';
+export * from './languages';

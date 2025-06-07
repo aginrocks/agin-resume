@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12,
-        fontFamily: 'Roboto',
+        fontFamily: 'Montserrat',
         color: '#121212',
     },
     dot: {
