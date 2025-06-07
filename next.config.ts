@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
             canvas: './empty-module.ts',
         },
     },
+    output: 'standalone',
 };
 
 export default nextConfig;
