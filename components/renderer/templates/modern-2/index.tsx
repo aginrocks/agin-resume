@@ -12,6 +12,7 @@ import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
+import { EducationSectionTemplate } from '../common/sections/education';
 
 const styles = StyleSheet.create({
     root: {
@@ -87,6 +88,9 @@ export function Modern2Template({ data }: TemplateProps) {
                     <Text style={styles.headerSubtitle}>{data.personalData.jobTitle}</Text>
                 </View>
                 <PersonalDataSectionTemplate data={data} titleSlot={Title} rowSlot={SidebarRow} />
+                {data.education.length !== 0 && (
+                    <EducationSectionTemplate data={data} titleSlot={Title} />
+                )}
                 {data.skills.length !== 0 && (
                     <SkillsSectionTemplate
                         data={data}

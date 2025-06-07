@@ -3,13 +3,15 @@ import { TemplateProps, TextProps } from '..';
 import {
     ExperienceSectionTemplate,
     GDPRSectionTemplate,
+    LanguagesSectionTemplate,
     PersonalDataSectionTemplate,
 } from '../common/sections';
-import { SidebarLI, Title } from './components';
+import { Progress, SidebarLI, Title } from './components';
 import { SidebarRow } from './components/sidebar-row';
 import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
+import { EducationSectionTemplate } from '../common/sections/education';
 
 const styles = StyleSheet.create({
     root: {
@@ -66,20 +68,15 @@ export function SimpleTemplate({ data }: TemplateProps) {
                     <Text style={styles.headerSubtitle}>{data.personalData.jobTitle}</Text>
                 </View>
                 <PersonalDataSectionTemplate data={data} titleSlot={Title} rowSlot={SidebarRow} />
-                {data.skills.length !== 0 && (
-                    <SkillsSectionTemplate
-                        data={data}
-                        titleSlot={Title}
-                        liSlot={SidebarLI}
-                        type="tags"
-                    />
-                )}
                 {data.overview && (
                     <SummarySectionTemplate
                         data={data}
                         titleSlot={Title}
                         descriptionOptions={description}
                     />
+                )}
+                {data.education.length !== 0 && (
+                    <EducationSectionTemplate data={data} titleSlot={Title} />
                 )}
                 {data.experience.length !== 0 && (
                     <ExperienceSectionTemplate
@@ -88,6 +85,22 @@ export function SimpleTemplate({ data }: TemplateProps) {
                         titleOptions={title}
                         subtitleOptions={subtitle}
                         descriptionOptions={description}
+                    />
+                )}
+                {data.skills.length !== 0 && (
+                    <SkillsSectionTemplate
+                        data={data}
+                        titleSlot={Title}
+                        liSlot={SidebarLI}
+                        type="tags"
+                    />
+                )}
+                {data.languages.length !== 0 && (
+                    <LanguagesSectionTemplate
+                        data={data}
+                        titleSlot={Title}
+                        progressSlot={Progress}
+                        rowsGap={8}
                     />
                 )}
                 {data.hobby && (

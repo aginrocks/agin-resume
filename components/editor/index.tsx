@@ -61,6 +61,21 @@ export function Editor() {
                 },
             ],
             links: [],
+            education: [
+                {
+                    institution: 'Harvard University',
+                    degree: 'Bachelor of Science in Computer Science',
+                    startDate: {
+                        year: 2015,
+                        month: 8,
+                    },
+                    endDate: {
+                        year: 2019,
+                        month: 5,
+                    },
+                    isPresent: false,
+                },
+            ],
         },
     });
 

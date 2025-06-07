@@ -29,27 +29,28 @@ const styles = StyleSheet.create({
     },
 });
 
-export type ExperienceSectionTemplateProps = SlotTemplateProps & {
+export type EducationSectionTemplateProps = SlotTemplateProps & {
     titleOptions?: TextProps;
     subtitleOptions?: TextProps;
     descriptionOptions?: TextProps;
 };
 
-export function ExperienceSectionTemplate({
+export function EducationSectionTemplate({
     data,
     titleSlot,
     titleOptions,
     subtitleOptions,
     descriptionOptions,
-}: ExperienceSectionTemplateProps) {
+}: EducationSectionTemplateProps) {
     return (
         <View style={styles.container}>
-            {titleSlot({ title: 'Experience' })}
+            {titleSlot({ title: 'Education' })}
             <div style={styles.items}>
-                {data.experience.map((e, i) => (
+                {data.education.map((e, i) => (
                     <div key={i}>
                         <Text style={[styles.title, convertTextPropsToStyle(titleOptions)]}>
-                            {[e.jobTitle, e.company, e.location].filter((x) => x).join(', ')}
+                            {[e.degree, e.institution].filter((x) => x).join(', ')}
+                            {e.grade ? ` (${e.grade})` : ''}
                         </Text>
                         <Text style={[styles.subtitle, convertTextPropsToStyle(subtitleOptions)]}>
                             {renderDateRange({

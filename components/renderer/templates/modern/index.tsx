@@ -13,6 +13,7 @@ import { SkillsSectionTemplate } from '../common/sections/skills';
 import { SummarySectionTemplate } from '../common/sections/summary';
 import { HobbySectionTemplate } from '../common/sections/hobby';
 import { Progress } from './components/progress';
+import { EducationSectionTemplate } from '../common/sections/education';
 
 const styles = StyleSheet.create({
     root: {
@@ -81,6 +82,21 @@ export function ModernTemplate({ data }: TemplateProps) {
                     titleSlot={SidebarTitle}
                     rowSlot={SidebarRow}
                 />
+                {data.education.length !== 0 && (
+                    <EducationSectionTemplate
+                        data={data}
+                        titleSlot={SidebarTitle}
+                        titleOptions={{
+                            color: '#ffffff',
+                        }}
+                        subtitleOptions={{
+                            color: '#ffffffaa',
+                        }}
+                        descriptionOptions={{
+                            color: '#ffffff',
+                        }}
+                    />
+                )}
                 {data.skills.length !== 0 && (
                     <SkillsSectionTemplate
                         data={data}
