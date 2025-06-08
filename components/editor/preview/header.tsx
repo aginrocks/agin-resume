@@ -42,7 +42,7 @@ export function PreviewHeader({ downloadUrl, canPreview = true }: PreviewHeaderP
                 <Button
                     variant="outline"
                     onClick={() => {
-                        let iframe = document.createElement('iframe');
+                        const iframe = document.createElement('iframe');
                         document.body.appendChild(iframe);
 
                         iframe.style.display = 'none';
