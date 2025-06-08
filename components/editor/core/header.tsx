@@ -41,9 +41,15 @@ export function CoreHeader() {
                     <IconBrush />
                     <div className="max-md:hidden">Change Template</div>
                 </Button>
-                <Button variant="outline" size={fullUi ? 'sm' : 'default'}>
-                    <IconBrandGithub />
-                    <div className="max-md:hidden">Star on GitHub</div>
+                <Button asChild variant="outline" size={fullUi ? 'sm' : 'default'}>
+                    <a
+                        href="https://github.com/aginrocks/agin-resume"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <IconBrandGithub />
+                        <div className="max-md:hidden">Star on GitHub</div>
+                    </a>
                 </Button>
                 {!fullUi && (
                     <Button

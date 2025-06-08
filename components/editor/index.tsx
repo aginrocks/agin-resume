@@ -20,62 +20,20 @@ export function Editor() {
         defaultValues: {
             template: 'modern-2',
             personalData: {
-                firstName: 'John',
-                lastName: 'Doe',
-                jobTitle: 'Software Engineer',
-                email: 'john.doe@example.com',
-                phone: '123-456-7890',
+                firstName: '',
+                lastName: '',
+                jobTitle: '',
+                email: '',
+                phone: '',
             },
-            overview:
-                'Experienced software engineer with a passion for developing innovative programs.',
-            experience: [
-                {
-                    company: 'Tech Company',
-                    jobTitle: 'Senior Developer',
-                    startDate: {
-                        year: new Date().getFullYear(),
-                        month: new Date().getMonth(),
-                    },
-                    endDate: {
-                        year: new Date().getFullYear(),
-                        month: new Date().getMonth(),
-                    },
-                    description: 'Worked on various projects using React and Node.js.',
-                    location: 'New York, NY',
-                    isPresent: false,
-                },
-            ],
-            skills: ['JavaScript', 'React', 'Node.js'],
-            hobby: 'Coding and hiking',
-            gdpr: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).',
-            languages: [
-                {
-                    language: 'English',
-                    level: 'C1',
-                    isNative: true,
-                },
-                {
-                    language: 'Spanish',
-                    level: 'B2',
-                    isNative: false,
-                },
-            ],
+            overview: '',
+            experience: [],
+            skills: [],
+            hobby: '',
+            gdpr: '',
+            languages: [],
             links: [],
-            education: [
-                {
-                    institution: 'Harvard University',
-                    degree: 'Bachelor of Science in Computer Science',
-                    startDate: {
-                        year: 2015,
-                        month: 8,
-                    },
-                    endDate: {
-                        year: 2019,
-                        month: 5,
-                    },
-                    isPresent: false,
-                },
-            ],
+            education: [],
         },
     });
 
