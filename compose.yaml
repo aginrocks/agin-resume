@@ -1,8 +1,19 @@
 services:
-    agin-resume:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        restart: unless-stopped
-        ports:
-            - '3000:3000'
+  agin-resume:
+    networks:
+      - proxy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    labels:
+      traefik.enable: true
+      traefik.port: 3000
+      traefik.http.routers.agin-resume.rule: "Host(`resume.agin.rocks`)"
+      traefik.http.services.agin-resume.loadbalancer.server.port: 3000
+    ports:
+      - '3000:3000'
+networks:
+  proxy:
+    name: proxy-network
+    external: true
